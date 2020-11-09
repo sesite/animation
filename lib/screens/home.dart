@@ -13,11 +13,12 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey[200],
       body: Container(
         padding: EdgeInsets.all(20),
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage(''),
+            image: AssetImage('assets/background.jpg'),
             fit: BoxFit.fitWidth,
             alignment: Alignment.topLeft,
           ),
@@ -27,11 +28,13 @@ class _HomeState extends State<Home> {
           children: [
             SizedBox(height: 30),
             SizedBox(
-              height: 160,
-              child: ScreenTitle(text: 'Animation'),
+              height: 180,
+              child: ScreenTitle(
+                text: 'Путешествия \n                 по миру!',
+              ),
             ),
             Flexible(
-              child: TripList(), //TripList(),
+              child: TripList(),
             ),
           ],
         ),

@@ -46,18 +46,37 @@ class _TripListState extends State<TripList> {
   }
 
   Widget _buildTitle(Trip trip) {
-    return ListTile(
-      onTap: () {
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => Details()));
-      },
-      contentPadding: EdgeInsets.all(25),
-      title: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text('${trip.night} ночей'),
-          Text('${trip.title}'),
-        ],
+    return Card(
+      child: ListTile(
+        onTap: () {
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => Details(trip: trip)));
+        },
+        contentPadding: EdgeInsets.all(20),
+        title: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              '${trip.night} ночей',
+              style: TextStyle(fontSize: 16, color: Colors.blue[700]),
+            ),
+            Text(
+              '${trip.title}',
+              style: TextStyle(fontSize: 22, color: Colors.black),
+            ),
+          ],
+        ),
+        leading: ClipRRect(
+          borderRadius: BorderRadius.circular(8),
+          child: Image.asset(
+            'assets/${trip.img}',
+            height: 50,
+          ),
+        ),
+        trailing: Text(
+          '\$ ${trip.price}',
+          style: TextStyle(color: Colors.deepOrange),
+        ),
       ),
     );
   }
