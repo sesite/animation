@@ -19,11 +19,14 @@ class Details extends StatelessWidget {
         child: Column(
           children: [
             ClipRRect(
-              child: Image.asset(
-                'assets/${trip.img}',
-                height: 360,
-                fit: BoxFit.fitHeight,
-                alignment: Alignment.topCenter,
+              child: Hero(
+                tag: 'location-img-${trip.img}',
+                child: Image.asset(
+                  'assets/${trip.img}',
+                  height: 360,
+                  fit: BoxFit.fitHeight,
+                  alignment: Alignment.topCenter,
+                ),
               ),
             ),
             SizedBox(height: 30),
