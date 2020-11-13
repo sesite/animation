@@ -12,11 +12,12 @@ class ScreenTitle extends StatelessWidget {
         end: 1,
       ),
       duration: Duration(seconds: 1),
+      curve: Curves.bounceInOut,
       builder: (BuildContext context, double _val, Widget child) {
         return Opacity(
           opacity: _val,
           child:
-              Padding(padding: EdgeInsets.only(top: _val * 24), child: child),
+              Padding(padding: EdgeInsets.only(top: _val * 30), child: child),
         );
       },
       child: Text(

@@ -11,6 +11,7 @@ class _HeartState extends State<Heart> with SingleTickerProviderStateMixin {
   AnimationController _animcontrolhearth;
   Animation<Color> _colorAnimation;
   Animation<double> _sizeAnimation;
+  Animation _curve;
 
   @override
   void initState() {
@@ -20,10 +21,12 @@ class _HeartState extends State<Heart> with SingleTickerProviderStateMixin {
       vsync: this,
     );
 
+    _curve = CurvedAnimation(curve: Curves.ease, parent: _animcontrolhearth);
+
     _colorAnimation = ColorTween(
       begin: Colors.grey[400],
       end: Colors.red,
-    ).animate(_animcontrolhearth);
+    ).animate(_curve);
 
     _sizeAnimation = TweenSequence(
       <TweenSequenceItem<double>>[
@@ -36,7 +39,7 @@ class _HeartState extends State<Heart> with SingleTickerProviderStateMixin {
           weight: 30,
         ),
       ],
-    ).animate(_animcontrolhearth);
+    ).animate(_curve);
 
     _animcontrolhearth.addListener(() {});
 
